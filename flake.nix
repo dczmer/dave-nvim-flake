@@ -3,15 +3,43 @@
     inputs = {
         nixpkgs = { url = "github:NixOS/nixpkgs"; };
         neovim = {
+            # TODO: i think `dir=contrib` is giving us dev branch?
             url = "github:neovim/neovim/stable?dir=contrib";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
-    outputs = { self, nixpkgs, neovim }: {
-        packages.x86_64-linux.default = neovim.packages.x86_64-linux.neovim;
+    outputs = { self, nixpkgs, neovim }:
+    let
+        # override `pkgs.neovim` from flake inputs
+        overlayFlakeInputs = prev: final: {
+            neovim = neovim.packages.x86_64-linux.neovim;
+        };
+        # add `pkgs.myNeovim` with my customized version
+        # this will reference the overridden `neovim` from above
+        overlayMyNeovim = prev: final: {
+            myNeovim = import ./packages/myNeovim.nix {
+                pkgs = final;
+            };
+        };
+        pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [ overlayFlakeInputs overlayMyNeovim ];
+        };
+    in {
+        # use the nixpkgs that goes with the neovim package
+        packages.x86_64-linux.default = pkgs.myNeovim;
+        # produce an 'app' for this platform that we can execute with `nix run`
         apps.x86_64-linux.default = {
             type = "app";
-            program = "${neovim.packages.x86_64-linux.neovim}/bin/nvim";
+            program = "${pkgs.myNeovim}/bin/nvim";
         };
     };
 }
+
+# NOTES:
+# - nix flake check
+# - nix build
+# - nix flake show
+# - nix flake update
+# - nix run
+# - `builtins.trace e1 e2` print e1 and return e2. put a debug print in front of an expression.
