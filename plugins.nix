@@ -25,9 +25,10 @@ with pkgs.vimPlugins; [
 
     # python specific
     # (requires autopep8, rope, pyright, ...)
-    coc-pyright
+    # - coc-pyright
 
     # webdev
+    # (requires npm and a billion other dependencies that slow vim down)
     # - vim-javascript
     # - typescript-vim
     # - vim-jsx-pretty

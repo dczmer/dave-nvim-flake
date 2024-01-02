@@ -1,10 +1,11 @@
 # Generic / General-Purpose NeoVim Flake
 
 General purpose neovim install.
-Includes plugins and configuration for things I do commonly, but leaves out expensive plugins, config, and dependencies for things I don't work with very often.
-Ideally, I'll be able to add my flake as an input to a devenv project and configure what type of development env it should use for that project.
-So a typescript project might include this flake and set the option `myNeovim.typescript.enabled = true;` to add coc-typescript, node, etc. needed for the plugins.
-Instead of bundling custom snippets with this flake, it includes vim-snippets and is configured to look for custom snippets in ~/.ultiSnips.
+
+- Includes plugins and configuration for things I do commonly, but leaves out expensive plugins, config, and dependencies for things I don't work with very often.
+- Ideally, I'll be able to add my flake as an input to a devenv project and configure what type of development env it should use for that project.
+- So a typescript project might include this flake and set the option `myNeovim.typescript.enabled = true;` to add coc-typescript, node, etc. needed for the plugins.
+- Instead of bundling custom snippets with this flake, it includes vim-snippets and is configured to look for custom snippets in ~/.vim/ultiSnips.
 
 Copying https://primamateria.github.io/blog/neovim-nix/ as a starting point.
 
