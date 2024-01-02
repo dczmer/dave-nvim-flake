@@ -16,6 +16,7 @@ with pkgs.vimPlugins; [
     ctrlp-vim
     coc-nvim
     coc-snippets
+    vim-snippets
     coc-fzf
     coc-git
     coc-json
