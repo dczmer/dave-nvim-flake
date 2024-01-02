@@ -27,6 +27,8 @@ set noswapfile
 set nomousehide
 set encoding=utf-8
 set termencoding=utf-8
+set updatetime=300
+set signcolumn=yes
 filetype on
 filetype indent on
 filetype plugin on

@@ -7,12 +7,22 @@
             url = "github:neovim/neovim/stable?dir=contrib";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        vim-plugin-AnsiEsc-src = {
+            url = "github:powerman/vim-plugin-AnsiEsc";
+            flake = false;
+        };
     };
-    outputs = { self, nixpkgs, neovim }:
+    outputs = { self, nixpkgs, neovim, vim-plugin-AnsiEsc-src }:
     let
         # override `pkgs.neovim` from flake inputs
         overlayFlakeInputs = prev: final: {
             neovim = neovim.packages.x86_64-linux.neovim;
+            vimPlugins = final.vimPlugins // {
+                vim-plugin-AnsiEsc = import ./packages/vimPlugins/vim-plugin-AnsiEsc.nix {
+                    src = vim-plugin-AnsiEsc-src;
+                    pkgs = prev;
+                };
+            };
         };
         # add `pkgs.myNeovim` with my customized version
         # this will reference the overridden `neovim` from above

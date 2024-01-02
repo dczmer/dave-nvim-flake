@@ -8,26 +8,23 @@ with pkgs.vimPlugins; [
     vim-airline
     vim-airline-themes
     vim-tmux-navigator
-
-    # TODO: vim-afterglow
-    #fzf
-    #ctrlp
-    #nvim-surround
-    #fastfold
-    #tagbar
-    #tagalong-vim
-    #splice-vim
-    
-    # TODO: coc - can i configure the extensions declaratively? i guess i don't need to it can be done per-project as needed
-
-    # TODO snippets? coc?:
-    #   ultisnips
-    #   vim-snippets
+    vim-nix
+    nvim-surround
+    tagbar
+    fzfWrapper
+    vim-plugin-AnsiEsc
+    ctrlp-vim
+    coc-nvim
+    coc-snippets
+    coc-fzf
+    coc-git
+    coc-json
+    coc-toml
+    coc-yaml
 
     # python specific
-    # - pytag
-    # - vim-coiled-snake
-    # 
+    # (requires autopep8, rope, pyright, ...)
+    coc-pyright
 
     # webdev
     # - vim-javascript
@@ -35,4 +32,5 @@ with pkgs.vimPlugins; [
     # - vim-jsx-pretty
     # - vim-jsx-typescript
     # - sparkup
+    # - tagalong-vim
 ]
