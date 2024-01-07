@@ -47,7 +47,7 @@
             overlays = [ overlayFlakeInputs overlayMyNeovim ];
         };
     in {
-        # use the nixpkgs that goes with the neovim package
+        # this installs the 'package' for this flake
         packages.x86_64-linux.default = pkgs.myNeovim;
         # produce an 'app' for this platform that we can execute with `nix run`
         apps.x86_64-linux.default = {

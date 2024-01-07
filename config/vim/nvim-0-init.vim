@@ -59,3 +59,9 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
 let g:airline#extensions#default#section_truncate_width = { 'c': 40 }
+
+" Sometimes highlighting matching bracket is confusing in terminals
+hi MatchParen ctermbg=lightblue ctermfg=white
+
+" mi no speel gud
+set spell
