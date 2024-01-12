@@ -61,7 +61,21 @@ let g:airline_section_c = '%t'
 let g:airline#extensions#default#section_truncate_width = { 'c': 40 }
 
 " Sometimes highlighting matching bracket is confusing in terminals
-hi MatchParen ctermbg=lightblue ctermfg=white
+hi MatchParen ctermbg=blue ctermfg=white
 
 " mi no speel gud
 set spell
+
+" toggle background transparency for contrast
+" NOTE: this is specific to the minimalist theme colors i'm using.
+let g:dave_transparent_bg = 0
+function! Toggle_transparent_bg()
+    if g:dave_transparent_bg > 0
+        hi Normal ctermfg=188 ctermbg=234 guifg=#e8e8d3 guibg=#151515
+        let g:dave_transparent_bg = 0
+    else
+        hi Normal ctermfg=188 ctermbg=NONE guifg=#e8e8d3 guibg=#151515
+        let g:dave_transparent_bg = 1
+    endif
+endfunction
+map <silent> <leader>bg :call Toggle_transparent_bg()<CR>
