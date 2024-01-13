@@ -79,3 +79,8 @@ function! Toggle_transparent_bg()
     endif
 endfunction
 map <silent> <leader>bg :call Toggle_transparent_bg()<CR>
+
+" look for ~/.hacks.vim for extra/temp stuff to apply on load
+if !empty(expand(glob("~/.hacks.vim")))
+    source ~/.hacks.vim
+endif
