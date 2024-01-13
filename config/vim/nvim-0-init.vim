@@ -84,3 +84,6 @@ map <silent> <leader>bg :call Toggle_transparent_bg()<CR>
 if !empty(expand(glob("~/.hacks.vim")))
     source ~/.hacks.vim
 endif
+
+" fix tabstop, etc. for .nix files to be 2 spaces
+autocmd! BufNewFile,BufRead  *.nix :setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2
