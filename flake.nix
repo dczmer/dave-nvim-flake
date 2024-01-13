@@ -1,14 +1,3 @@
-# NOTES:
-# - nix flake check
-# - nix build
-# - nix flake show
-# - nix flake update
-# - nix run
-# - `builtins.trace e1 e2` print e1 and return e2. put a debug print in front of an expression.
-# - nix repl
-#   > :l <nixpkgs>
-#   > x = import x.nix { pkgs=pkgs }
-#   > :b import x.nix { pkgs=pkgs }
 {
   description = "General purpose neovim flake";
   inputs = {

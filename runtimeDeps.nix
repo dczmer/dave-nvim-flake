@@ -5,7 +5,6 @@ let
     powerline-fonts
     silver-searcher
     nodejs
-    pyright
   ];
 in
   deps
