@@ -50,7 +50,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " goto code navigation
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gv <Plug>(coc-type-definition)
+nmap <silent> gV <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
