@@ -23,6 +23,8 @@ with pkgs.vimPlugins; [
   coc-toml
   coc-yaml
 
+  nvim-tree-lua
+
   # python specific
   # (requires autopep8, rope, pyright, ...)
   # - coc-pyright
