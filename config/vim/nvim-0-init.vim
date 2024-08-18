@@ -74,7 +74,7 @@ function! Toggle_transparent_bg()
         hi Normal ctermfg=188 ctermbg=234 guifg=#e8e8d3 guibg=#151515
         let g:dave_transparent_bg = 0
     else
-        hi Normal ctermfg=188 ctermbg=NONE guifg=#e8e8d3 guibg=#151515
+        hi Normal ctermfg=188 ctermbg=NONE guifg=#e8e8d3 guibg=NONE
         let g:dave_transparent_bg = 1
     endif
 endfunction
